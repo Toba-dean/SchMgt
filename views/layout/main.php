@@ -30,13 +30,16 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">DASHBOARD</a>
+              <a class="nav-link active" aria-current="page" href="home">DASHBOARD</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">CLASSES</a>
+              <a class="nav-link" href="users">USERS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">TESTS</a>
+              <a class="nav-link" href="classes">CLASSES</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tests">TESTS</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,9 +47,9 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="profile">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                <li><a class="dropdown-item" href="home">Dashboard</a></li>
                 <div class="dropdown-divider"></div>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="logout">Logout</a></li>
               </ul>
             </li>
           </ul>
