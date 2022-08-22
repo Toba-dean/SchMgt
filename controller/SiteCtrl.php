@@ -8,6 +8,8 @@ class SiteCtrl extends Controller
 {
   public function home()
   {
-    return $this->render('home');
+    return $this->render('home', [
+      "name" => "Dean"
+    ]);
   }
 }

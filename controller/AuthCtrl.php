@@ -8,6 +8,13 @@ class AuthCtrl extends Controller
 {
   public function login()
   {
-    return "Login Page";
+    $this->setLayout('auth');
+    return  $this->render('login');
+  }
+
+  public function register()
+  {
+    $this->setLayout('auth');
+    return  $this->render('signup');
   }
 }

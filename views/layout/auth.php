@@ -14,10 +14,6 @@
 
 <body>
 
-  <nav>
-    hello
-  </nav>
-
   <div style="min-width: 350px;">
 
     {{content}}
