@@ -12,4 +12,11 @@ class SiteCtrl extends Controller
       "name" => "Dean"
     ]);
   }
+
+  public function profile()
+  {
+    return $this->render('profile', [
+      "name" => "Dean"
+    ]);
+  }
 }
