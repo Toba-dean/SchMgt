@@ -60,7 +60,7 @@
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search" aria-label="search" aria-describedby="basic-addon1">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">
+            <span class="input-group-text" id="basic-addon1" role="button">
               <i class="fa fa-search"></i>
               &nbsp;
             </span>

@@ -20,7 +20,7 @@
     >
     <input 
       type="text" 
-      name="text" 
+      name="last_name" 
       placeholder="Enter Last Name"
       class="form-control mb-4 p-2"
       autofocus
