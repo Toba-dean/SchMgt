@@ -6,8 +6,18 @@ use app\core\Application;
 use app\controller\SiteCtrl;
 use app\controller\AuthCtrl;
 
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
 
-$app = new Application(dirname(__DIR__));
+$config = [
+  "db" => [
+    'dsn' => $_ENV['DB_DSN'],
+    'user' => $_ENV['DB_USER'],
+    'password' => $_ENV['DB_PASSWORD'],
+  ]
+];
+
+$app = new Application(dirname(__DIR__), $config);
 
 
 $app->router->get('/', [SiteCtrl::class, 'home']);
