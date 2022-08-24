@@ -2,9 +2,10 @@
 
 namespace app\model;
 
+use app\core\DBModel;
 use app\core\Model;
 
-class RegisterModel extends Model
+class RegisterModel extends DBModel
 {
   public string $first_name = '';
   public string $last_name = '';
@@ -14,6 +15,11 @@ class RegisterModel extends Model
   public string $password = '';
   public string $confirm_password = '';
 
+  public static function primaryKey(): string
+  {
+    return 'id';
+  }
+
   public function tableName(): string
   {
     return 'users';
@@ -21,7 +27,7 @@ class RegisterModel extends Model
 
   public function attributes(): array
   {
-    return ["first_name", "last_name", "email", "gender", "rank", "password", "confirm_password"];
+    return ["first_name", "last_name", "email", "gender", "rank", "password"];
   }
 
   public function rules(): array
@@ -39,6 +45,7 @@ class RegisterModel extends Model
 
   function save()
   {
-    return true;
+    $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+    return parent::insert();
   }
 }

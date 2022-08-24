@@ -2,6 +2,7 @@
 
 namespace app\model;
 
+use app\core\Application;
 use app\core\Model;
 
 class LoginModel extends Model
@@ -29,6 +30,17 @@ class LoginModel extends Model
 
   function login()
   {
-    return true;
+    $user = RegisterModel::findOne(['email' => $this->email], 'users');
+
+    if (!$user) {
+      $this->addError('email', "No user found with this email address.");
+      return false;
+    }
+    if (!password_verify($this->password, $user->password)) {
+      $this->addError('password', "Incorrect Password.");
+      return false;
+    }
+
+    return Application::$app->login($user);
   }
 }

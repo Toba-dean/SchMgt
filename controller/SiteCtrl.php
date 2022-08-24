@@ -10,7 +10,7 @@ class SiteCtrl extends Controller
   public function home()
   {
     $user = new UserModel;
-    $data = $user->findAll();
+    $data = $user::findOne(['first_name' => 'Toba'], 'users');
     return $this->render('home', [
       "name" => "Dean",
       "data" => $data

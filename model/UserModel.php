@@ -2,13 +2,18 @@
 
 namespace app\model;
 
-use app\core\Model;
+use app\core\DBModel;
 
-class UserModel extends Model
+class UserModel extends DBModel
 {
   public function rules(): array
   {
     return [];
+  }
+
+  public static function primaryKey(): string
+  {
+    return 'id';
   }
 
   public function tableName(): string

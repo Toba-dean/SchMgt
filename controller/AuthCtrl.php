@@ -2,6 +2,7 @@
 
 namespace app\controller;
 
+use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
 use app\core\Response;
@@ -19,13 +20,9 @@ class AuthCtrl extends Controller
       $logUser->loadData($request->getBody());
 
       if ($logUser->validate() && $logUser->login()) {
-        // $response->redirect('/');
-        echo "Success";
-        // exit;
+        $response->redirect('/');
+        exit;
       }
-      echo "<pre>";
-      var_dump($logUser->errors);
-      exit;
     }
     return  $this->render('login');
   }
@@ -39,14 +36,19 @@ class AuthCtrl extends Controller
       $registerUser->loadData($request->getBody());
 
       if ($registerUser->validate() && $registerUser->save()) {
-        // $response->redirect('/');
-        echo "Success";
-        // exit;
+        $response->redirect('/');
+        exit;
       }
       echo "<pre>";
       var_dump($registerUser->errors);
       exit;
     }
     return  $this->render('signup');
+  }
+
+  public function logout($params, Request $request, Response $response)
+  {
+    Application::$app->logout();
+    $response->redirect('/');
   }
 }

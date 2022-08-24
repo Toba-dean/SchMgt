@@ -5,11 +5,13 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 use app\core\Application;
 use app\controller\SiteCtrl;
 use app\controller\AuthCtrl;
+use app\model\RegisterModel;
 
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
 $config = [
+  "userClass" => RegisterModel::class,
   "db" => [
     'dsn' => $_ENV['DB_DSN'],
     'user' => $_ENV['DB_USER'],
@@ -28,6 +30,7 @@ $app->router->get('login', [AuthCtrl::class, 'login']);
 $app->router->post('login', [AuthCtrl::class, 'login']);
 $app->router->get('register', [AuthCtrl::class, 'register']);
 $app->router->post('register', [AuthCtrl::class, 'register']);
+$app->router->get('logout', [AuthCtrl::class, 'logout']);
 
 
 $app->run();
