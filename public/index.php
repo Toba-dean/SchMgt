@@ -25,7 +25,9 @@ $app->router->get('home', [SiteCtrl::class, 'home']);
 $app->router->get('profile', [SiteCtrl::class, 'profile']);
 
 $app->router->get('login', [AuthCtrl::class, 'login']);
+$app->router->post('login', [AuthCtrl::class, 'login']);
 $app->router->get('register', [AuthCtrl::class, 'register']);
+$app->router->post('register', [AuthCtrl::class, 'register']);
 
 
 $app->run();

@@ -11,8 +11,6 @@ class SiteCtrl extends Controller
   {
     $user = new UserModel;
     $data = $user->findAll();
-    // echo "<pre>";
-    // var_dump($user, $data);
     return $this->render('home', [
       "name" => "Dean",
       "data" => $data
