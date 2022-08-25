@@ -20,6 +20,14 @@ class LoginModel extends Model
     return ["email", "password"];
   }
 
+  public function labels(): array
+  {
+    return [
+      'email' => 'Enter Email',
+      'password' => 'Enter Password',
+    ];
+  }
+
   public function rules(): array
   {
     return [

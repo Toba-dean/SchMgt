@@ -1,6 +1,57 @@
-<form method="post" action="">
-  <div class="container-fluid">
-    <div 
+<div class="container-fluid">
+  <?php
+
+  use app\core\form\Form;
+  use app\core\form\Select;
+
+  $form = Form::Begin('', "post");
+
+  ?>
+  <div 
+    style="width: 100%; max-width: 340px; margin-top: 15px;"
+    class="mx-auto shadow rounded p-4"
+  >
+    <h2 class='text-center'>My School</h2>
+    <img 
+      src="/images/logo1.png" 
+      alt="logo image"
+      class="d-block mx-auto rounded-circle border border-primary mb-3"
+      style="width: 100px;"
+    >
+    <h3>Add User</h3>
+
+    <?php
+      echo $form->field($model, 'first_name');
+      echo $form->field($model, 'last_name');
+      echo $form->field($model, 'email')->emailField();
+
+      $select = Select::Begin('gender', $model);
+
+        echo $select->field('', "--Select a Gender--");
+        echo $select->field('male', "Male");
+        echo $select->field('female', "Female");
+
+      echo Select::End();
+
+      $select = Select::Begin('rank', $model);
+
+        echo $select->field('', "--Select a Rank---");
+        echo $select->field('student', "Student");
+        echo $select->field('receptionist', "Receptionist");
+        echo $select->field('lecturer', "Lecturer");
+        echo $select->field('admin', "Admin");
+        echo $select->field('super_admin', "Super Admin");
+
+      echo Select::End();
+
+      echo $form->field($model, 'password')->passwordField();
+      echo $form->field($model, 'confirm_password')->passwordField();
+    ?>
+
+    <button class="btn btn-primary float-end">Create User</button>
+    <button type="reset" class="btn btn-danger">Cancel</button>
+  </div>
+  <!-- <div 
       style="width: 100%; max-width: 340px; margin-top: 15px;"
       class="mx-auto shadow rounded p-4"
     >
@@ -40,7 +91,7 @@
       </select>
       <select class="my-2 form-control" name="rank">
         <option value=""> --Select a Rank-- </option>
-        <option value="student"> Student</option>
+        <option value="student"> Student </option>
         <option value="receptionist"> Receptionist </option>
         <option value="lecturer"> Lecturer </option>
         <option value="admin"> Admin </option>
@@ -59,7 +110,11 @@
         class="form-control mb-4 p-2"
       >
       <button class="btn btn-primary float-end">Create User</button>
-      <button type="button" class="btn btn-danger">Cancel</button>
-    </div>
-  </div>
-</form>
+      <button type="reset" class="btn btn-danger">Cancel</button>
+    </div> -->
+  <?php
+
+  echo Form::End();
+
+  ?>
+</div>

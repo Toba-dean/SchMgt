@@ -3,7 +3,6 @@
 namespace app\model;
 
 use app\core\DBModel;
-use app\core\Model;
 
 class RegisterModel extends DBModel
 {
@@ -18,6 +17,17 @@ class RegisterModel extends DBModel
   public static function primaryKey(): string
   {
     return 'id';
+  }
+
+  public function labels(): array
+  {
+    return [
+      'first_name' => 'Enter First Name',
+      'last_name' => 'Enter Last Name',
+      'email' => 'Enter Email',
+      'password' => 'Enter Password',
+      'confirm_password' => 'Confirm Password',
+    ];
   }
 
   public function tableName(): string

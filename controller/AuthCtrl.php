@@ -24,7 +24,9 @@ class AuthCtrl extends Controller
         exit;
       }
     }
-    return  $this->render('login');
+    return  $this->render('login', [
+      'model' => $logUser
+    ]);
   }
 
   public function register($params, Request $request, Response $response)
@@ -40,10 +42,15 @@ class AuthCtrl extends Controller
         exit;
       }
       // echo "<pre>";
-      // var_dump($registerUser->errors);
+      // var_dump($registerUser);
       // exit;
+      return  $this->render('signup', [
+        'model' => $registerUser
+      ]);
     }
-    return  $this->render('signup');
+    return  $this->render('signup', [
+      'model' => $registerUser
+    ]);
   }
 
   public function logout($params, Request $request, Response $response)
