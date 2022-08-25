@@ -2,8 +2,8 @@
 
 use app\core\Application;
 
-echo "<pre>";
-var_dump(Application::$app->user);
+// echo "<pre>";
+// var_dump(Application::$app->user);
 
 ?>
 
@@ -21,6 +21,19 @@ var_dump(Application::$app->user);
   <!-- Font awesome -->
   <link rel="stylesheet" href="assets/all.min.css">
   <title>Home</title>
+
+  <style>
+    nav ul li a {
+      width: 110px;
+      text-align: center;
+      border-left: 1px solid #eee;
+      border-right: 1px solid #fff;
+    }
+
+    nav ul li a:hover {
+      background: #ccc;
+    }
+  </style>
 </head>
 
 <body>
@@ -33,9 +46,11 @@ var_dump(Application::$app->user);
           <img src="/images/logo1.png" alt="logo image" style="width: 40px;">
           SchMgt
         </a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -50,11 +65,14 @@ var_dump(Application::$app->user);
             <li class="nav-item">
               <a class="nav-link" href="tests">TESTS</a>
             </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 USER
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="profile">Profile</a></li>
                 <li><a class="dropdown-item" href="home">Dashboard</a></li>
                 <div class="dropdown-divider"></div>

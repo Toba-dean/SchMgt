@@ -59,7 +59,7 @@
         class="form-control mb-4 p-2"
       >
       <button class="btn btn-primary float-end">Create User</button>
-      <button class="btn btn-danger">Cancel</button>
+      <button type="button" class="btn btn-danger">Cancel</button>
     </div>
   </div>
 </form>
