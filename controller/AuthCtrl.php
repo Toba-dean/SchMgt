@@ -41,9 +41,7 @@ class AuthCtrl extends Controller
         $response->redirect('/');
         exit;
       }
-      // echo "<pre>";
-      // var_dump($registerUser);
-      // exit;
+     
       return  $this->render('signup', [
         'model' => $registerUser
       ]);

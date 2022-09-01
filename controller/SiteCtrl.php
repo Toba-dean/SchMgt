@@ -12,6 +12,7 @@ class SiteCtrl extends Controller
     $user = new UserModel;
     // $data = $user::findOne(['first_name' => 'Toba'], 'users');
     // $user->update(1, ["first_name" => "Jackie", "last_name" => "Chan", "gender" => 'female']);
+    // $user->delete(5);
     $data = $user->findAll();
 
     return $this->render('home', [

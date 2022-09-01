@@ -56,6 +56,6 @@ class RegisterModel extends DBModel
   function save()
   {
     $this->password = password_hash($this->password, PASSWORD_DEFAULT);
-    return parent::insert();
+    return parent::createUser();
   }
 }
