@@ -23,6 +23,6 @@ class UserModel extends DBModel
 
   public function attributes(): array
   {
-    return ["first_name", "last_name", "email", "gender", "rank", "password", "confirm_password"];
+    return ["first_name", "last_name", "email", "gender", "rank"];
   }
 }
