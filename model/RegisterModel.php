@@ -2,9 +2,10 @@
 
 namespace app\model;
 
-use app\core\DBModel;
+use app\core\Application;
+use app\core\UserName;
 
-class RegisterModel extends DBModel
+class RegisterModel extends UserName
 {
   public string $first_name = '';
   public string $last_name = '';
@@ -13,6 +14,12 @@ class RegisterModel extends DBModel
   public string $rank = '';
   public string $password = '';
   public string $confirm_password = '';
+
+  protected $beforeInsert = [
+    'make_user_id',
+    'make_school_id',
+    'hash_password'
+  ];
 
   public static function primaryKey(): string
   {
@@ -37,7 +44,11 @@ class RegisterModel extends DBModel
 
   public function attributes(): array
   {
-    return ["first_name", "last_name", "email", "gender", "rank", "password"];
+    return [
+      "first_name", "last_name",
+      "email", "gender", "rank",
+      "password", "user_id", "school_id"
+    ];
   }
 
   public function rules(): array
@@ -53,9 +64,36 @@ class RegisterModel extends DBModel
     ];
   }
 
+  public function make_user_id()
+  {
+  }
+
+  public function make_school_id()
+  {
+  }
+
+  public function randomString($n)
+  {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $str = '';
+    for ($i = 0; $i < $n; $i++) {
+      $index = rand(0, strlen($characters) - 1);
+      $str .= $characters[$index];
+    }
+
+    return $str;
+  }
+
   function save()
   {
     $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+    $this->user_id = $this->randomString(20);
+    $this->school_id = '';
     return parent::createUser();
+  }
+
+  public function getDisplayName(): string
+  {
+    return  $this->first_name;
   }
 }

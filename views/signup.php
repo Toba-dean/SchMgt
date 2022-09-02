@@ -12,12 +12,14 @@
     class="mx-auto shadow rounded p-4"
   >
     <h2 class='text-center'>My School</h2>
-    <img 
-      src="/images/logo1.png" 
-      alt="logo image"
-      class="d-block mx-auto rounded-circle border border-primary mb-3"
-      style="width: 100px;"
-    >
+    <a href="/">
+      <img 
+        src="/images/logo1.png" 
+        alt="logo image"
+        class="d-block mx-auto rounded-circle border border-primary mb-3"
+        style="width: 100px;"
+      >
+    </a>
     <h3>Add User</h3>
 
     <?php

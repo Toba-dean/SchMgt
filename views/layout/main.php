@@ -51,37 +51,49 @@ use app\core\Application;
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <?php if (Application::$app->user) : ?>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="home">DASHBOARD</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="users">USERS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="classes">CLASSES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tests">TESTS</a>
+              </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <?php echo Application::$app->user->first_name; ?>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="profile">Profile</a></li>
+                  <li><a class="dropdown-item" href="home">Dashboard</a></li>
+                  <div class="dropdown-divider"></div>
+                  <li><a class="dropdown-item" href="logout">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        <?php else : ?>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="home">DASHBOARD</a>
+              <a class="nav-link" aria-current="page" href="login">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="users">USERS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="classes">CLASSES</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="tests">TESTS</a>
+              <a class="nav-link" href="register">Register</a>
             </li>
           </ul>
-
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                USER
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="profile">Profile</a></li>
-                <li><a class="dropdown-item" href="home">Dashboard</a></li>
-                <div class="dropdown-divider"></div>
-                <li><a class="dropdown-item" href="logout">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
       </div>
+
+    <?php endif ?>
     </nav>
 
     {{content}}

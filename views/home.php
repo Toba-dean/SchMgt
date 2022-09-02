@@ -4,9 +4,9 @@
 
     var_dump($data);
 
-    foreach($data as $key => $val) {
-      var_dump($val->first_name);
-    }
+    // foreach($data as $key => $val) {
+    //   var_dump($val->first_name);
+    // }
 
     ?>
   </pre>
